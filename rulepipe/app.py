@@ -1,5 +1,5 @@
 from flask import Flask, request
-from rulepipe import *
+from core.rulepipe import *
 
 app = Flask(__name__)
 rules = RuleManager()
