@@ -155,8 +155,11 @@ class RuleManager(object):
             error_message = "At least one 'type' value required to add new rule."
             logging.error(error_message)
             raise KeyError(error_message)
-
-        is_added_to_database = self.db.add_rule(name, rule)
+        
+        try:
+            is_added_to_database = self.db.add_rule(name, rule)
+        except NameError as err:
+            raise NameError(err.args[0])
 
         if is_added_to_database and self.ENV["USE_CACHE"]:
             logging.debug("New rule caching...")
