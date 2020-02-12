@@ -17,12 +17,15 @@ RulePipe uses some Python package as a module. These packages must be installed 
 
 ### Run RulePipe REST API Service
 
-- Clone this repository `git clone https://github.com/peptr/rulepipe.git`
-- Change directory to repository directory `cd rulepipe`
-- Install the necessary packages `$ pip install -r requirements.txt`
-- Rename the .env.example file to .env `mv .env.example .env`
-- Change the database settings in the .env file.
-- Run flask service `export FLASK_APP=api.py && python3 -m flask run`
+- Clone source and change directory
+
+  `$ git clone https://github.com/peptr/rulepipe.git && cd rulepipe/`
+- Install dependencies 
+
+  `$ pip install -r requirements.txt`
+- Run service with gunicorn
+
+  `$ gunicorn rulepipe.app:api`
 
 Is enough for installing and using RulePile as a RESTful service.
 
